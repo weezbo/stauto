@@ -1,21 +1,14 @@
-from stauto.plane import Plane
+from stauto.plane import odds_of_last_passenger_getting_correct_seat
 
 
-def test_plane_has_a_number_of_seats():
-    plane = Plane(5)
-    assert plane.get_seats() == [0, 1, 2, 3, 4]
+def test_odds_checker_returns_zero_if_plane_has_zero_seats():
+    assert odds_of_last_passenger_getting_correct_seat(0) == 0
 
 
-def test_plane_has_passengers_for_seats():
-    plane = Plane(4)
-    assert plane.get_preboard_list() == [1, 2, 3, 4]
+def test_odds_checker_returns_one_if_plane_has_one_seat():
+    assert odds_of_last_passenger_getting_correct_seat(1) == 1
 
 
-def test_generate_boarding_pattern_with_first_seat_right():
-    plane = Plane(2)
-    assert plane.generate_boarding_pattern(0) == [1, 2]
-
-
-def test_generate_boarding_pattern_with_first_seat_wrong():
-    plane = Plane(2)
-    assert plane.generate_boarding_pattern(1) == [2, 1]
+def test_odds_checker_returns_half_if_plane_has_more_seats():
+    assert odds_of_last_passenger_getting_correct_seat(2) == .5
+    assert odds_of_last_passenger_getting_correct_seat(100) == .5
