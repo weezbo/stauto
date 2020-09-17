@@ -15,9 +15,14 @@ def test_odds_checker_returns_half_if_plane_has_more_seats():
     assert odds_of_last_passenger_getting_correct_seat(100) == .5
 
 
-def test_odds_that_seat_is_taken_for_first_passenger():
+def test_odds_that_seat_is_available_for_zero_seats():
+    assert odds_that_seat_is_available_for_last(0) == 0
+
+
+def test_odds_that_seat_is_available_for_one_seat():
     assert odds_that_seat_is_available_for_last(1) == 1
 
 
-def test_odds_that_seat_is_taken_for_second_passenger():
+def test_odds_that_seat_is_available_for_last_passenger():
+    assert odds_that_seat_is_available_for_last(3) == .5
     assert odds_that_seat_is_available_for_last(100) == .5
