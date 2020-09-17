@@ -1,0 +1,2 @@
+# stauto
+state auto setup
